@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  react:
+    build:
+      context: .
+      target: 'development'
+    ports:
+      - '8080:8080'
+    volumes:
+      - '.:/usr/src/react-project'
+      - 'react_dependencies:/usr/src/react-project/node_modules'
+    env_file:
+      - '.env'
+
+volumes:
+  db:
+  cache:
+  react_dependencies:
